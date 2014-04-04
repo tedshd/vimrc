@@ -2,6 +2,8 @@
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936,utf-16,big5,euc-jp,latin1
 
+set t_Co=256
+
 " highlight
 syntax on
 
@@ -9,6 +11,19 @@ syntax on
 " autocmd InsertLeave * se nocul
 autocmd InsertEnter * se cul
 set cursorline
+
+" Set cursor line.
+" highlight CursorLine cterm=none ctermbg=4
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=235 ctermfg=128 guibg=#2c2d27
+set colorcolumn=80
+
+" set guitablabel=%N\ %f
+" hi TabLine guifg=#90fff0 guibg=#2050d0 ctermfg=yellow ctermbg=white
+" hi TabLineSel guifg=#90fff0 guibg=#2050d0 ctermfg=white ctermbg=LightMagenta
+" hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+" hi TabLine ctermfg=Blue ctermbg=Yellow
+" hi TabLineSel ctermfg=Red ctermbg=Yellow
 
 " highlight search
 set hlsearch
@@ -19,6 +34,9 @@ set showmatch
 
 " theme
 colorscheme torte
+
+" background
+" set background=dark
 
 " Tab trans to space
 set expandtab
@@ -36,6 +54,15 @@ set autoindent
 " show line number
 set number
 
+" Set foldering.
+set foldmethod=syntax
+set foldnestmax=3
+
+set nowrap
+
+" paste format origin from other
+set paste
+
 " history
 set history=50
 
@@ -47,7 +74,7 @@ set ruler
 
 " 总是显示状态行
 set laststatus=2
-set statusline=%<%f\ %m%=\ %h%r\ %-19([%p%%]\ %3l,%02c%03V%)%y
+set statusline=%<[%F]\ %m%=\ %h%r\ %-19([%p%%]\ %3l,%02c%03V%)%y
 highlight StatusLine term=bold,reverse cterm=bold,reverse ctermfg=8
 
 " other setting
