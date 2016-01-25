@@ -8,8 +8,8 @@ set t_Co=256
 syntax on
 
 " highlight focus line
-" autocmd InsertLeave * se nocul
-autocmd InsertEnter * se cul
+autocmd InsertLeave * se nocul
+" autocmd InsertEnter * se cul
 set cursorline
 
 " Set cursor line.
@@ -33,7 +33,9 @@ set incsearch
 set showmatch
 
 " theme
-colorscheme torte
+" colorscheme torte
+" colorscheme lucius
+colorscheme apprentice
 
 " background
 " set background=dark
@@ -46,7 +48,7 @@ set softtabstop=4
 set shiftwidth=4
 
 " smart alignment
-set smartindent
+" set smartindent
 
 " auto alignment
 set autoindent
@@ -55,18 +57,30 @@ set autoindent
 set number
 
 " Set foldering.
-set foldmethod=syntax
+" zi 啟用/關閉折疊
+" zo 打開折疊
+" zc 關閉折疊
+" zO 打開所有折疊
+" zC 關閉所有折疊
+" zx 更新折壘，即除了游標所在折疊不關，其他都關掉
+" zf 摺疊選取的段落(manual)
+set foldmethod=indent
+" set foldmethod=marker
+" set foldmethod=manual
 set foldnestmax=3
 
 set nowrap
 
 " paste format origin from other
-set paste
+" set paste
+
+" Switch `:set paste`  open/close
+set pastetoggle=<F2>
 
 " history
-set history=50
+set history=1000
 
-" 命令行（在状态行）的高度，默认为1,这里是2
+" 命令行（在状态行）的高度，默认为1
 set cmdheight=1
 
 " 在编辑过程中，在右下角显示光标位置的状态行
@@ -91,6 +105,8 @@ highlight StatusLine term=bold,reverse cterm=bold,reverse ctermfg=8
 
 " 搜尋不分大小寫
 set ic
+
+set autoread
 
 "" keypad
 "" http://vim.wikia.com/wiki/PuTTY_numeric_keypad_mappings
