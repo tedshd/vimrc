@@ -126,6 +126,9 @@ imap <Esc>OR *
 imap <Esc>Ol +
 imap <Esc>OS -
 
+" js autocompltet
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
 " open file show last position
 if has("autocmd")
    autocmd BufRead *.txt set tw=78
