@@ -148,3 +148,16 @@ com! -bang WQA :wqa
 com! -bang Q :q
 com! -bang Qa :qa
 " }}}
+" trim whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.js :call TrimWhiteSpace()
+autocmd BufWritePre     *.css :call TrimWhiteSpace()
+autocmd BufWritePre     *.html :call TrimWhiteSpace()
